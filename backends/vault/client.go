@@ -154,6 +154,7 @@ func New(address, authType string, params map[string]string) (*Client, error) {
 		return nil, errors.New("you have to set the auth type when using the vault backend")
 	}
 	log.Info("Vault authentication backend set to %s", authType)
+	log.Info("Vault KV backend version set to %s", params["kv-version"])
 	conf, err := getConfig(address, params["cert"], params["key"], params["caCert"])
 
 	if err != nil {
